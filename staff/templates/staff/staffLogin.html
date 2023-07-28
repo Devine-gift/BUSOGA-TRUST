@@ -100,7 +100,8 @@
     
     <h5>Welcome to The Busoga Trust</h5>
     <p>Login to access the staff dashboard</p>
-    <form >
+    <form method = 'post' >
+       {% csrf_token %}
         <input type="email" placeholder="Email"value="Email" required> <br/>
         <input type="password" placeholder="Password" value="Password" required>
       <input type="submit" value="Login">

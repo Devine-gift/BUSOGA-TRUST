@@ -5,6 +5,7 @@ from .models import Staff
 
 def stafflogin(request):
     return render(request, 'staff/staffLogin.html')
+
  
 def register(request):
     if request.method == 'POST':

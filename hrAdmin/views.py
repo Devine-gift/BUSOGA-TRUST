@@ -1,7 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from .forms import partnerform
-from .models import Partne
+from .models import  Projects, Partne
 
 # Create your views here.
 def admin(request):
@@ -9,7 +7,8 @@ def admin(request):
 
 def login(request):
     partner_count = Partne.objects.count()
-    return render(request, 'hrAdmin/adminDasboard.html', {'partner_count': partner_count})
+    project_count = Projects.objects.count()
+    return render(request, 'hrAdmin/adminDasboard.html', {'partner_count': partner_count,'project_count': project_count})
 
 def Partner(request):
     part = Partne.objects.all()
@@ -17,7 +16,12 @@ def Partner(request):
     
 
 def projects(request):
-    return render(request, 'hrAdmin/projects.html')
+    proj = Projects.objects.all()
+    return render(request, 'hrAdmin/projects.html', {'proj':proj})
+
+def projectview(request):
+    proj = Projects.objects.all()
+    return render(request, 'hrAdmin/projectview.html', {'proj':proj})
 
 def tasks(request):
     return render(request, 'hrAdmin/tasks.html')
